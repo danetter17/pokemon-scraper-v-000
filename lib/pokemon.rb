@@ -19,8 +19,23 @@ class Pokemon
     db.execute("INSERT INTO pokemon (name, type) VALUES (?, ?)",name, type)
   end
   
-  def self.find(numb, db)
-    pokemon = db.execute("SELECT * FROM pokemon WHERE id = ?", numb)
+  # def self.find(numb, db)
+  #   pokemon = db.execute("SELECT * FROM pokemon WHERE id = ?", numb)
+  #   new_pokemon = self.new(pokemon)
+  #   new_pokemon.id = pokemon[0][0]
+  #   new_pokemon.name = pokemon[0][1]
+  #   new_pokemon.type = pokemon[0][2]
+  #   new_pokemon.hp = pokemon[0][3]
+  #   return new_pokemon
+  # end
+  
+  # def alter_hp(numb, db)
+  #   db.execute("UPDATE pokemon SET hp = ? WHERE id = ?", [numb], [self.id])
+  #   self.hp = numb
+  # end
+  
+  def self.find(num, db)
+    pokemon = db.execute("SELECT * FROM pokemon WHERE id=?", [num])
     new_pokemon = self.new(pokemon)
     new_pokemon.id = pokemon[0][0]
     new_pokemon.name = pokemon[0][1]
@@ -28,9 +43,9 @@ class Pokemon
     new_pokemon.hp = pokemon[0][3]
     return new_pokemon
   end
-  
-  def alter_hp(numb, db)
-    db.execute("UPDATE pokemon SET hp = ? WHERE id = ?", [numb], [self.id])
-    self.hp = numb
+
+  def alter_hp(num, db)
+    db.execute("UPDATE pokemon SET hp = ? WHERE id = ?", [num], [self.id])
+    self.hp = num
   end
 end
