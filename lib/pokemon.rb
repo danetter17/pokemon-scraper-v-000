@@ -1,15 +1,15 @@
-# class Pokemon
-#   attr_accessor :id, :name, :type, :db, :hp
+class Pokemon
+  attr_accessor :id, :name, :type, :db, :hp
   
-#   @@all = []
+  @@all = []
   
-  # def initialize(keywords)
-    # @id = id
-    # @name = name
-    # @type = type
-    # @db = db
-    # @@all << self
-  # end
+  def initialize(keywords)
+    @id = id
+    @name = name
+    @type = type
+    @db = db
+    @@all << self
+  end
  
   # def self.all
   #   @@all
